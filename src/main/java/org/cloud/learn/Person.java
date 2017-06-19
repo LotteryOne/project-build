@@ -14,8 +14,13 @@ import javax.persistence.NamedQuery;
 public class Person {
     @Id
     @GeneratedValue
-
     private  Long id;
+
+    private String name;
+
+    private Integer age;
+
+    private String address;
 
     public Long getId() {
         return id;
@@ -25,12 +30,20 @@ public class Person {
         this.id = id;
     }
 
-    public Integer getAger() {
-        return ager;
+    public String getName() {
+        return name;
     }
 
-    public void setAger(Integer ager) {
-        this.ager = ager;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getAddress() {
@@ -41,7 +54,14 @@ public class Person {
         this.address = address;
     }
 
-    private Integer ager;
+    public Person(){
 
-    private String address;
+    }
+
+    public Person(Long id,String name, Integer age, String address) {
+        this.id=id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
 }

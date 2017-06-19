@@ -5,12 +5,73 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import java.sql.*;
+
+/*@RunWith(SpringRunner.class)
+@SpringBootTest*/
 public class BuildApplicationTests {
 
 	@Test
 	public void contextLoads() {
 	}
+
+
+	@Test
+	public void testSql(){
+
+
+
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+
+			String url="jdbc:mysql://23.106.148.167:3306/mysql?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true";
+			String name="root";
+			String pwd="ysysljj";
+
+			Connection conn = DriverManager.getConnection(url, name, pwd);
+
+
+			System.out.println(conn);
+
+
+			PreparedStatement ps = conn.prepareStatement("drop table person");
+
+			ps.execute();
+//			ResultSet rs = ps.executeQuery();
+//
+//			rs.next();
+//
+//			System.out.println(rs.getString(1));
+
+			if(ps!=null)ps.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			if(conn!=null){
+				conn.close();
+			}
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+
+
+	}
+
+
+
 
 }
