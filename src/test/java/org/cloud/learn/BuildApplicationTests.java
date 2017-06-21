@@ -24,7 +24,7 @@ public class BuildApplicationTests {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url="jdbc:mysql://23.106.148.167:3306/mysql?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true";
+			String url="jdbc:mysql://23.106.148.167:3306/mysql";
 			String name="root";
 			String pwd="ysysljj";
 
@@ -34,14 +34,14 @@ public class BuildApplicationTests {
 			System.out.println(conn);
 
 
-			PreparedStatement ps = conn.prepareStatement("drop table person");
+			PreparedStatement ps = conn.prepareStatement("select * from person");
 
-			ps.execute();
-//			ResultSet rs = ps.executeQuery();
-//
-//			rs.next();
-//
-//			System.out.println(rs.getString(1));
+//			ps.execute();
+			ResultSet rs = ps.executeQuery();
+
+			rs.next();
+
+			System.out.println(rs.getString(2));
 
 			if(ps!=null)ps.close();
 

@@ -3,24 +3,25 @@ package org.cloud.learn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 
 /**
- * Created by tappe on 6/11/2017.
+ * Created by tappe on 6/18/2017.
  */
+
 @Entity
-@NamedQuery(name="Person.namequery",
-        query="select p from Person p where p.name=?1  and  address=?2")
 public class Person {
+
+
     @Id
     @GeneratedValue
-    private  Long id;
+    private Long id;
 
     private String name;
 
     private Integer age;
 
     private String address;
+
 
     public Long getId() {
         return id;
@@ -54,14 +55,13 @@ public class Person {
         this.address = address;
     }
 
-    public Person(){
-
-    }
-
-    public Person(Long id,String name, Integer age, String address) {
-        this.id=id;
+    public Person(String name, Integer age, String address) {
         this.name = name;
         this.age = age;
         this.address = address;
+    }
+
+    protected Person(){
+        super();
     }
 }

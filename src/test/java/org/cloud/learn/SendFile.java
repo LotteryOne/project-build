@@ -85,8 +85,8 @@ public class SendFile {
     }
 
     public static void t2(String files) throws Exception {
-        String myCount = "xuanfengshizi@163.com";
-        String myPwd = "19900614sun";
+        String myCount = "@163.com";
+        String myPwd = "";
         String mySMTPHost = "smtp.163.com";
         String receiveAccount = "sunzhongwen@fullgoalos.com.cn";
 
